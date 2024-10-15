@@ -127,7 +127,7 @@ J'ai voulu utiliser la commande ssh-copy-id, mais celle-ci n'étant pas disponib
      PS C:\Users\luceg\.ssh> ls
      ```
    - Résultat :
-     ```
+```bash
     Directory: C:\Users\luceg\.ssh
 
 
@@ -137,7 +137,7 @@ Mode                 LastWriteTime         Length Name
 -a----        09/10/2024     15:15            404 id_rsa.pub
 -a----        09/10/2024     14:42            535 known_hosts
 
-     ```
+ ```
 
 #### 2. Copie de la clé publique sur le serveur
 1. J'ai utilisé la commande `scp` pour copier le fichier de clé publique `id_rsa.pub` vers le répertoire `/root` du serveur distant :
@@ -862,7 +862,7 @@ Voici une version améliorée et bien structurée de votre texte sur le journal 
   dmesg
   ```
   Extrait de la sortie :
-  ```
+  ```bash
   [    0.000000] Linux version 6.1.0-25-amd64 (debian-kernel@lists.debian.org) ...
   [    0.163442] smpboot: CPU0: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz ...
   [    0.709485] e1000: Intel(R) PRO/1000 Network Driver
@@ -870,14 +870,13 @@ Voici une version améliorée et bien structurée de votre texte sur le journal 
   ```
 
   - **Info processeur** :
-    ```bash
+
     [    0.163442] smpboot: CPU0: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (family: 0x6, model: 0x8c, stepping: 0x1)
-     ```
+
   - **Info cartes réseau** :
-    ```bash
   [    0.709485] e1000: Intel(R) PRO/1000 Network Driver
 [    1.121306] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
- ```
+
 
 
 - Sources: https://www.baeldung.com/linux/ps-command, https://www.digitalocean.com/community/tutorials/linux-ps-command, https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server#step-2-copying-an-ssh-public-key-to-your-server, https://linuxhandbook.com/top-vs-htop/, https://phoenixnap.com/kb/top-command-in-linux, https://doc.ubuntu-fr.org/logrotate
