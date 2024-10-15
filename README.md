@@ -1,4 +1,4 @@
-# tp02unix
+# tp02unix Luce Giovannetti
 ## 1.1: Connection ssh root (reprise fin tp-01) 
 On avait modifie permitrootlogin et passwordautentication pour pouvoir se connecter depuis notre machine à la MV.
 Extrait du man:
@@ -24,28 +24,28 @@ Extrait du man:
 #### `PermitRootLogin`
 Le paramètre `PermitRootLogin` dans le fichier de configuration SSH contrôle si l'utilisateur root est autorisé à se connecter via SSH et, si oui, par quelles méthodes. Voici les différentes options :
 
-- `PermitRootLogin yes`
+`PermitRootLogin yes`
   
 - **Description** : Autorise toutes les méthodes d'authentification pour l'utilisateur root, y compris le mot de passe.
 - **Avantages** : Permet un accès root direct via SSH.
 - **Inconvénients** : C’est une option risquée, car elle expose le compte root à des attaques par force brute sur le mot de passe, surtout si le mot de passe est faible.
 - **Cas d'utilisation** : À éviter dans la plupart des cas pour des raisons de sécurité, mais peut être utile temporairement lors de configurations initiales ou de débogage en cas de perte d'accès.
 
-- `PermitRootLogin prohibit-password`
+`PermitRootLogin prohibit-password`
 
 - **Description** : Autorise uniquement l'authentification par clé publique pour root ; les méthodes d'authentification par mot de passe et clavier interactif sont désactivées.
 - **Avantages** : Améliore la sécurité en autorisant seulement l'accès par clé publique pour root, empêchant ainsi les attaques par force brute via le mot de passe.
 - **Inconvénients** : Si les clés SSH sont compromises, le compte root reste vulnérable, et cela peut nécessiter une configuration et une gestion des clés plus rigoureuses.
 - **Cas d'utilisation** : Recommandé pour les environnements de production où l'accès root direct est nécessaire. 
 
-- `PermitRootLogin forced-commands-only`
+`PermitRootLogin forced-commands-only`
 
 - **Description** : Permet l'accès root par clé publique uniquement si une commande spécifique est définie pour l'authentification. Toutes les autres méthodes d'authentification pour root sont désactivées.
 - **Avantages** : Utile pour des cas spécifiques comme les sauvegardes automatisées, car l'accès root est limité à des commandes pré-autorisées.
 - **Inconvénients** : Ne permet pas d'accès interactif pour root. Cela nécessite une configuration rigoureuse.
 - **Cas d'utilisation** : Utilisé pour des automatisations spécifiques où un accès root est nécessaire, mais un accès complet n’est pas requis, par exemple pour des scripts de sauvegarde.
 
-- `PermitRootLogin no`
+`PermitRootLogin no`
 
 - **Description** : Désactive complètement l'accès root via SSH, quel que soit le type d'authentification.
 - **Avantages** : Le plus sécurisé, car il empêche tout accès SSH direct au compte root.
@@ -56,20 +56,21 @@ Le paramètre `PermitRootLogin` dans le fichier de configuration SSH contrôle s
 
 Le paramètre `PasswordAuthentication` détermine si l'authentification par mot de passe est autorisée pour tous les utilisateurs, pas seulement pour root. Voici les options disponibles :
 
-#### a. `PasswordAuthentication yes`
+`PasswordAuthentication yes`
 - **Description** : Autorise tous les utilisateurs à se connecter via un mot de passe.
 - **Avantages** : Simple pour les utilisateurs car ils peuvent se connecter sans nécessiter de clé SSH.
 - **Inconvénients** : Expose le serveur aux attaques par force brute de mot de passe, surtout si les mots de passe sont faibles ou s'il n'existe pas de protection.
 - **Cas d'utilisation** : Peut être utile dans un environnement de test ou pour des utilisateurs ayant des restrictions temporaires sur la clé publique, mais à éviter dans la plupart des cas.
 
-#### b. `PasswordAuthentication no`
+`PasswordAuthentication no`
 - **Description** : Désactive l'authentification par mot de passe pour tous les utilisateurs. L'authentification se fait uniquement par clé publique.
 - **Avantages** : Réduit considérablement le risque d'attaques par force brute de mot de passe, car aucun mot de passe ne peut être utilisé pour accéder au serveur.
 - **Inconvénients** : Exige que tous les utilisateurs disposent de clés SSH pour accéder au serveur, ce qui peut nécessiter une configuration supplémentaire.
 - **Cas d'utilisation** : Recommandé pour la plupart des environnements de production. L’authentification par clé est plus sécurisée et protège contre les attaques par force brute de mot de passe.
 
 ## 1.2: Authentification par clef / Generation de clefs 
-commencer par generer un couple de clef prive public sur la machine hote, avec la commande:
+On commence par generer un couple de clef prive public sur la machine hote, avec la commande:
+
 ```bash
 C:\Users\luceg>ssh-keygen -t rsa -b 2048
   ```
@@ -251,7 +252,7 @@ Les attaques par force brute SSH consistent à essayer systématiquement de nomb
 
 ## 2.1 : Étude des processus UNIX
 
-- Pour afficher la liste des processus, j'ai utilisé la commande suivante :
+- Pour afficher **la liste des processus**, j'ai utilisé la commande suivante :
 
 ```bash
 ps axu
@@ -340,7 +341,7 @@ root         684  0.0  0.0      0     0 ?        I    13:36   0:00 [kworker/0:2-
 root         686  0.0  0.2  11040  4352 pts/0    R+   13:36   0:00 ps axu
 ```
 
-- À l'aide du manuel (`man ps`), voici la signification des colonnes de notre réponse :
+- À l'aide du **manuel** (`man ps`), voici la signification des colonnes de notre réponse :
 
 USER : Nom de l’utilisateur propriétaire du processus
 PID : Numéro d’identification du processus
@@ -351,10 +352,10 @@ START : Date et heure de début du processus
 TIME : Temps CPU utilisé par le processus
 COMMAND : Commande utilisée pour lancer le processus
 
-- A quoi correspond l’information TIME ?
+- A quoi correspond l’information **TIME** ?
 TIME indique le temps total CPU utilisé par le processus depuis son lancement, exprimé en minutes et secondes. Cela reflète le temps pendant lequel le processus a été actif sur le CPU.
 
-- Quel est le processus ayant le plus utilise le processeur sur votre machine ?
+- Quel est le **processus** ayant le plus utilise le **processeur** sur votre machine ?
 Pour trouver le processus utilisant le plus de CPU, j'ai utilisé la commande `top`
 
 Le résultat nous indique que le processus ayant le plus utilisé le processeur est le 816.
@@ -363,7 +364,7 @@ Le résultat nous indique que le processus ayant le plus utilisé le processeur 
     816 root      20   0   11552   5048   3168 R   0.3   0.3   0:00.10 top
 ```
 
-- Quel a été le premier processus lancé après le démarrage du système ?
+- Quel a été le **premier processu**s lancé après le démarrage du système ?
 Pour connaître le premier processus lancé, j'ai utilisé `ps -p 1`, et obtenu le resultat:
 
     PID TTY          TIME CMD
@@ -371,7 +372,7 @@ Pour connaître le premier processus lancé, j'ai utilisé `ps -p 1`, et obtenu 
 
   Le premier processus lance est systemd.
 
-- À quelle heure votre machine a-t-elle démarré ?
+- À quelle heure votre machine a-t-elle **démarré** ?
 Pour afficher l'heure de démarrage de la machine, j'ai utilisé `ps -o lstart -p 1`:
 
 Resultat:
@@ -381,7 +382,7 @@ Fri Oct 11 12:54:25 2024
 ```
 Cela nous indique que la machine a démarré le 11 octobre à 12h54.
 
-- Trouvez une autre commande permetant de trouver le temps depuis lequel votre serveur tourne
+- Trouvez une autre commande permetant de trouver le **temps** depuis lequel votre serveur tourne
 Pour obtenir le temps écoulé depuis le démarrage, j'ai utilisé `ps -p 1 -o etime`:
 Resultat:
 ```bash
@@ -390,14 +391,28 @@ Resultat:
 ```
 Cela nous indique que le serveur tourne depuis 1 heure, 47 minutes et 38 secondes.
 
-- Pouvez-vous établir le nombre approximatif de processus créés depuis le démarrage (“boot”) de votre machine ?
+- Pouvez-vous établir le nombre approximatif de **processus créés** depuis le démarrage (“boot”) de votre machine ?
 Pour compter le nombre de processus actifs, j'ai utilisé `ps -ef | wc -l`:
 
 Le résultat indique que les processus créés depuis le démarrage sont environ 79.
 
 
-2 
- ps -ef
+#### 2 : Afficher le PPID des processus
+Pour afficher la liste des processus en cours d'exécution avec leurs **PPID** (Parent Process ID), j'ai utilisé la commande suivante :
+
+`ps -ef`
+
+Explication :
+- `ps` c'est l'acronyme de "process status". Cette commande permet de visualiser les processus en cours sur le système.
+
+-`e` indique à ps de lister tous les processus du système, pas seulement ceux de l'utilisateur qui exécute la commande.
+
+-`f` signifie "full format". Elle demande à ps d'afficher des informations détaillées sur chaque processus, y compris le PID (Process ID), le PPID (Parent Process ID), l'utilisateur (UID) qui a lancé le processus, le temps d'exécution, et la commande qui a démarré le processus.
+
+
+Voici un extrait des résultats obtenus :
+
+```bash 
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 Oct13 ?        00:00:00 /sbin/init
 root           2       0  0 Oct13 ?        00:00:00 [kthreadd]
@@ -406,85 +421,28 @@ root           4       2  0 Oct13 ?        00:00:00 [rcu_par_gp]
 root           5       2  0 Oct13 ?        00:00:00 [slub_flushwq]
 root           6       2  0 Oct13 ?        00:00:00 [netns]
 root          10       2  0 Oct13 ?        00:00:00 [mm_percpu_wq]
-root          11       2  0 Oct13 ?        00:00:00 [rcu_tasks_kthread]
-root          12       2  0 Oct13 ?        00:00:00 [rcu_tasks_rude_kthread]
-root          13       2  0 Oct13 ?        00:00:00 [rcu_tasks_trace_kthread]
-root          14       2  0 Oct13 ?        00:00:00 [ksoftirqd/0]
-root          15       2  0 Oct13 ?        00:00:00 [rcu_preempt]
-root          16       2  0 Oct13 ?        00:00:00 [migration/0]
-root          18       2  0 Oct13 ?        00:00:00 [cpuhp/0]
-root          20       2  0 Oct13 ?        00:00:00 [kdevtmpfs]
-root          21       2  0 Oct13 ?        00:00:00 [inet_frag_wq]
-root          22       2  0 Oct13 ?        00:00:00 [kauditd]
-root          23       2  0 Oct13 ?        00:00:00 [khungtaskd]
-root          24       2  0 Oct13 ?        00:00:00 [oom_reaper]
-root          27       2  0 Oct13 ?        00:00:00 [writeback]
-root          28       2  0 Oct13 ?        00:00:02 [kcompactd0]
-root          29       2  0 Oct13 ?        00:00:00 [ksmd]
-root          30       2  0 Oct13 ?        00:00:00 [khugepaged]
-root          31       2  0 Oct13 ?        00:00:00 [kintegrityd]
-root          32       2  0 Oct13 ?        00:00:00 [kblockd]
-root          33       2  0 Oct13 ?        00:00:00 [blkcg_punt_bio]
-root          34       2  0 Oct13 ?        00:00:00 [tpm_dev_wq]
-root          35       2  0 Oct13 ?        00:00:00 [edac-poller]
-root          36       2  0 Oct13 ?        00:00:00 [devfreq_wq]
-root          37       2  0 Oct13 ?        00:00:00 [kworker/0:1H-kblockd]
-root          38       2  0 Oct13 ?        00:00:00 [kswapd0]
-root          44       2  0 Oct13 ?        00:00:00 [kthrotld]
-root          46       2  0 Oct13 ?        00:00:00 [acpi_thermal_pm]
-root          48       2  0 Oct13 ?        00:00:00 [mld]
-root          49       2  0 Oct13 ?        00:00:00 [ipv6_addrconf]
-root          54       2  0 Oct13 ?        00:00:00 [kstrp]
-root          59       2  0 Oct13 ?        00:00:00 [zswap-shrink]
-root          60       2  0 Oct13 ?        00:00:00 [kworker/u3:0]
-root         125       2  0 Oct13 ?        00:00:00 [ata_sff]
-root         126       2  0 Oct13 ?        00:00:00 [scsi_eh_0]
-root         127       2  0 Oct13 ?        00:00:00 [scsi_eh_1]
-root         128       2  0 Oct13 ?        00:00:00 [scsi_tmf_0]
-root         129       2  0 Oct13 ?        00:00:00 [scsi_tmf_1]
-root         130       2  0 Oct13 ?        00:00:00 [scsi_eh_2]
-root         131       2  0 Oct13 ?        00:00:00 [scsi_tmf_2]
-root         140       2  0 Oct13 ?        00:00:00 [kworker/0:2H-kblockd]
-root         171       2  0 Oct13 ?        00:00:00 [jbd2/sda1-8]
-root         172       2  0 Oct13 ?        00:00:00 [ext4-rsv-conver]
-root         273       2  0 Oct13 ?        00:00:00 [cryptd]
-root         279       2  0 Oct13 ?        00:00:00 [irq/18-vmwgfx]
-root         429       2  0 Oct13 ?        00:00:00 [jbd2/sda2-8]
-root         430       2  0 Oct13 ?        00:00:00 [ext4-rsv-conver]
-root         432       2  0 Oct13 ?        00:00:00 [jbd2/sda3-8]
-root         433       2  0 Oct13 ?        00:00:00 [ext4-rsv-conver]
-root         483       1  0 Oct13 ?        00:00:00 /usr/sbin/cron -f
-message+     484       1  0 Oct13 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfil
-root         490       1  0 Oct13 ?        00:00:00 dhclient -4 -v -i -pf /run/dhclient.enp0s3.pid -lf /var/lib/dhcp/dhc
-root         494       1  0 Oct13 ?        00:00:00 /sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
-root         520       1  0 Oct13 tty1     00:00:00 /bin/login -p --
-root         521       1  0 Oct13 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-root         531       1  0 Oct13 ?        00:00:00 /lib/systemd/systemd --user
-root         532     531  0 Oct13 ?        00:00:00 (sd-pam)
-root         538     520  0 Oct13 tty1     00:00:00 -bash
-root        1259       1  0 09:31 ?        00:00:00 /lib/systemd/systemd-udevd
-systemd+    1262       1  0 09:31 ?        00:00:00 /lib/systemd/systemd-timesyncd
-root        1267       1  0 09:31 ?        00:00:00 /lib/systemd/systemd-logind
-root        1781       1  0 19:28 ?        00:00:00 /lib/systemd/systemd-journald
-root        1782       2  0 19:28 ?        00:00:03 [kworker/0:3-events]
-root        1815       2  0 19:59 ?        00:00:00 [kworker/u2:0-events_unbound]
-root        1823       2  0 20:15 ?        00:00:00 [kworker/u2:1-writeback]
-root        1824       2  0 20:15 ?        00:00:00 [kworker/0:0-ata_sff]
-root        1829       2  0 20:20 ?        00:00:00 [kworker/0:1-ata_sff]
-root        1831     521  0 20:22 ?        00:00:00 sshd: root@pts/0
+....
 root        1837    1831  0 20:22 pts/0    00:00:00 -bash
 root        1840    1837  0 20:23 pts/0    00:00:00 ps -ef
+```
+*– Donner la liste ordonnee de tous les processus ancˆetres de la commande ps en cours d’ex´ecution.*
 
-3
+#### 3 : Utilisation de la commande pstree 
+Pour afficher la liste ordonnée de tous les **processus ancêtres** de la commande ps en cours d'exécution, nous allons utiliser la commande `pstree`.
 
-apt update 
+Voici les **étapes** que j'ai suivi :
+1. **Mettre à jour les paquets :**
+`apt update `
 
-apt search pstree
+2. **Rechercher le paquet pstree :**
+`apt search pstree`
 
-apt install psmisc
+3. **Installer psmisc :**
+`apt install psmisc`
 
-je peux maintenant utiliser la commande pstree, qui donne comme resultat:
-root@serveur1:~# pstree
+4. **Je peux maintenant utiliser la commande pstree, qui donne comme resultat l'arbre des processus en cours d'exécution :**
+
+```bash
 systemd─┬─cron
         ├─dbus-daemon
         ├─dhclient
@@ -496,10 +454,14 @@ systemd─┬─cron
         ├─systemd-timesyn───{systemd-timesyn}
         ├─systemd-udevd
         └─wpa_supplicant
+```
+- Chaque processus est indenté pour représenter les relations parent-enfant. Par exemple, le processus login est un enfant de systemd, et bash est un enfant de login.
+  
+#### 4 : commandes top et htop
+La commande `top` (tableau des processus) affiche une vue en temps réel des processus en cours d'exécution sous Linux et montre les tâches gérées par le noyau. Elle fournit également un résumé des informations système qui indique l'utilisation des ressources, y compris l'utilisation du CPU et de la mémoire.
 
-4 top et htop
-j'ai utilise la commande top
-root@serveur1:~# top
+Voici un extrait du resultat obtenu :
+```bash
 top - 20:30:52 up 1 day,  7:44,  2 users,  load average: 0.00, 0.00, 0.00
 Tasks:  75 total,   1 running,  74 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 98.3 id,  1.4 wa,  0.0 hi,  0.0 si,  0.0 st
@@ -520,31 +482,15 @@ MiB Swap:   6173.0 total,   6173.0 free,      0.0 used.   1744.4 avail Mem
      14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftirqd/0
      15 root      20   0       0      0      0 I   0.0   0.0   0:00.41 rcu_preempt
      16 root      rt   0       0      0      0 S   0.0   0.0   0:00.17 migration/0
-     18 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0
-     20 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kdevtmpfs
-     21 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 inet_frag_wq
-     22 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kauditd
-     23 root      20   0       0      0      0 S   0.0   0.0   0:00.01 khungtaskd
-     24 root      20   0       0      0      0 S   0.0   0.0   0:00.00 oom_reaper
-     27 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 writeback
-     28 root      20   0       0      0      0 S   0.0   0.0   0:02.62 kcompactd0
-     29 root      25   5       0      0      0 S   0.0   0.0   0:00.00 ksmd
-     30 root      39  19       0      0      0 S   0.0   0.0   0:00.23 khugepaged
-     31 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kintegrityd
-     32 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kblockd
-     33 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 blkcg_punt_bio
-     34 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 tpm_dev_wq
-     35 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 edac-poller
-     36 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 devfreq_wq
-     37 root       0 -20       0      0      0 I   0.0   0.0   0:00.55 kworker/0:1H-kblockd
-     38 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kswapd0
-     44 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kthrotld
-     46 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 acpi_thermal_pm
+     ...............
      48 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mld
      49 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 ipv6_addrconf
      54 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kstrp
+```
 
-     j'ai appuye sur ? et obtenu un resume de l'aide
+- La touche `?` permet d'afficher un resume de l'aide :
+
+```bash
 Help for Interactive Commands - procps-ng 4.0.2
 Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
 
@@ -569,9 +515,11 @@ Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
           ( commands shown with '.' require a visible task display window )
 Press 'h' or '?' for help with Windows,
 Type 'q' or <Esc> to continue
+```
 
-SHIFT+M pour trier la liste de processus par mémoire résidente (RSS) de manière décroissante,  
-
+- **SHIFT+M** permet de trier la liste de processus par mémoire résidente (RSS) de manière décroissante, extrait du resultat :
+  
+```bash
 top - 20:34:18 up 1 day,  7:48,  2 users,  load average: 0.00, 0.00, 0.00
 Tasks:  76 total,   1 running,  75 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
@@ -586,41 +534,21 @@ MiB Swap:   6173.0 total,   6173.0 free,      0.0 used.   1743.8 avail Mem
    1781 root      20   0   32952   8264   7232 S   0.0   0.4   0:00.16 systemd-journal
    1267 root      20   0   25376   7864   6868 S   0.0   0.4   0:00.07 systemd-logind
    1262 systemd+  20   0   90080   6660   5780 S   0.0   0.3   0:00.60 systemd-timesyn
-    494 root      20   0   16532   5884   5020 S   0.0   0.3   0:00.25 wpa_supplicant
-   1259 root      20   0   25792   5284   4472 S   0.0   0.3   0:00.07 systemd-udevd
-   1853 root      20   0   11552   5036   3160 R   0.0   0.2   0:00.18 top
-    484 message+  20   0    9244   4908   4288 S   0.0   0.2   0:00.05 dbus-daemon
-    538 root      20   0    7996   4764   3452 S   0.0   0.2   0:00.01 bash
-   1837 root      20   0    7988   4732   3420 S   0.0   0.2   0:00.00 bash
-    520 root      20   0    6120   4124   3600 S   0.0   0.2   0:00.03 login
-    490 root      20   0    5868   3596   2748 S   0.0   0.2   0:00.20 dhclient
-    532 root      20   0  103228   3052      0 S   0.0   0.2   0:00.00 (sd-pam)
-    483 root      20   0    6608   2620   2372 S   0.0   0.1   0:00.06 cron
-      2 root      20   0       0      0      0 S   0.0   0.0   0:00.01 kthreadd
-      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
-      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp
-      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq
-      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
-     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq
-     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_kthread
-     12 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_rude_kthread
-     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_trace_kthread
-     14 root      20   0       0      0      0 S   0.0   0.0   0:00.10 ksoftirqd/0
-     15 root      20   0       0      0      0 I   0.0   0.0   0:00.42 rcu_preempt
-     16 root      rt   0       0      0      0 S   0.0   0.0   0:00.18 migration/0
-     18 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0
-     20 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kdevtmpfs
+......................
      21 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 inet_frag_wq
      22 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kauditd
      23 root      20   0       0      0      0 S   0.0   0.0   0:00.01 khungtaskd
      24 root      20   0       0      0      0 S   0.0   0.0   0:00.00 oom_reaper
      27 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 writeback
+```
 
-Une fois trié par mémoire, regardez le processus en haut de la liste. Notez le PID et le nom de la commande.
-PID 1, commande systemd
+- Le processus en haut de la liste, le plus **gourmand**, est :
 
-pour decouvrir ce que mon processus plus gourmand fais, j utilise root@serveur1:~# man systemd
-resultat:
+PID : 1, commande systemd
+
+- Pour decouvrir ce que mon processus plus gourmand fais, j utilise le **man** (`man systemd`)
+
+```bash
 TEMD(1)                                             systemd                                             SYSTEMD(1)
 
 NAME
@@ -664,59 +592,83 @@ CONCEPTS
        The following unit types are available:
 
  Manual page systemd(1) line 1 (press h for help or q to quit)
+```
+**Explication** : systemd est un gestionnaire de système et de services pour Linux, qui s'exécute en tant que premier processus au démarrage. Il a pour rôle de lancer et de gérer les services qui tournent sur l'ordinateur. systemd utilise des fichiers de configuration pour organiser différents objets appelés "unités", qui peuvent être en cours d'exécution, arrêtés, ou dans un état de transition. Si un service échoue, systemd enregistre l'erreur pour qu'on puisse la consulter plus tard. En gros, il assure un démarrage rapide et une gestion efficace des services du système.
 
- en appuyant sur 'z', l'affichage change couleur
+- Pour changer couleur de l'affichage, j'ai :
+  1. Ouvert les options pour changer couleur avec la touche **Z**
+  2. Choisi **l'element** que je veux changer :
+S. Summary Data area.
+M. Messages and prompts.
+H. Column headings.
+T. Task information in the process list.
+  3. Choisi la **couleur**  que je voulais :
+0. Black.
+1. Red.
+2. Green.
+3. Yellow.
+4. Blue.
+5. Magenta.
+6. Cyan.
+7. White.
 
-???mettre en
-avant le colonne de trie, changer la colonne de trie.???
+Affichage avec les couleurs modifies: 
+![image](https://github.com/user-attachments/assets/0b176387-043e-476d-b478-f26d6ea843af)
 
-pour utiliser htop j'ai du l'installer à l aide de la commande apt install htop 
 
-apres j'ai lance htop, et obtenu
+- Pour mettre en avant le colonne de trie et changer la colonne de trie:
+1. **Utiliser les touches de tri :** Dans l'interface de `top`, on peut directement changer le critère de tri en appuyant sur certaines touches :
+   - **P** : Trier par utilisation du CPU (%CPU).
+   - **M** : Trier par utilisation de la mémoire (%MEM).
+   - **N** : Trier par PID (identifiant de processus).
+   - **T** : Trier par le temps CPU cumulatif (TIME+).
+
+2. **Appuyer sur la touche `o` :** Cela permet de définir un champ spécifique pour le tri.
+   - Après avoir appuyé sur `o`, entrer le nom du champ (comme `TIME`, `MEM`, etc.) par lequel trier.
+   - On peut aussi préfixer le nom du champ avec `+` pour un tri descendant ou `-` pour un tri ascendant.
+
+3. **Appuyer sur la touche O :** Ajouter un filtre à la sortie et définir les critères de filtrage. 
+Il faut indiquer :
+  - **FLD** : le nom du champ (par exemple, `%MEM`, `TIME`, etc.)
+  - **VAL** : la valeur à comparer.
+
+- Pour utiliser `htop` j'ai du l'installer à l aide de la commande `apt install htop `. Apres j'ai lance `htop`, et obtenu :
 ![image](https://github.com/user-attachments/assets/1871240a-f455-4ff6-b281-c2eb5d47a89c)
 
- avantages et inconvenients htop, difference avec top
- Différences entre top et htop
-Installation :
+- **Avantages et inconvenients** htop, difference avec top :
 
-top : Préinstallé sur toutes les distributions Linux modernes.
-htop : Nécessite une installation manuelle.
-Fonctionnalité :
+1. **Installation :**
+   - **top :** Préinstallé sur toutes les distributions Linux modernes, il est donc immédiatement disponible.
+   - **htop :** Nécessite une installation manuelle.
 
-top : Met l'accent sur les processus consommant le plus de ressources système.
-htop : Affiche tous les processus en cours, avec une interface plus interactive.
-Support du défilement :
+2. **Fonctionnalité :**
+   - **top :** Met l'accent sur les processus consommant le plus de ressources système, mais avec moins d'interactivité.
+   - **htop :** Affiche tous les processus en cours de manière interactive, facilitant ainsi la gestion des ressources.
 
-top : Pas de support de défilement.
-htop : Permet le défilement horizontal et vertical.
-Arbre des processus :
+3. **Support du défilement :**
+   - **top :** Ne prend pas en charge le défilement, ce qui peut limiter la visibilité sur les processus.
+   - **htop :** Permet le défilement horizontal et vertical, rendant la navigation plus fluide.
 
-top : Ne montre pas l'arbre des processus.
-htop : Affiche l'arbre des processus en appuyant sur F5.
-Support de la souris :
+4. **Arbre des processus :**
+   - **top :** Ne montre pas l'arbre des processus, ce qui peut compliquer la compréhension des relations entre eux.
+   - **htop :** Affiche l'arbre des processus en appuyant sur F5, facilitant l'analyse de la hiérarchie des processus.
 
-top : Non.
-htop : Oui.
-Interface utilisateur :
+5. **Support de la souris :**
+   - **top :** Ne supporte pas l'utilisation de la souris, ce qui peut rendre l'interaction moins intuitive.
+   - **htop :** Prend en charge la souris, offrant une expérience utilisateur plus agréable.
 
-top : Texte simple avec des informations mises en gras.
-htop : Interface colorée et esthétique.
-Date de sortie :
+6. **Apparence visuelle**
+- **top :** Présente une interface simple, se concentrant sur l'affichage des informations essentielles.
+- **htop :** Offre une interface colorée, incluant des barres de progression pour chaque cœur de processeur et permettant d'utiliser la souris pour naviguer.
 
-top : 1984, créé par William LeFebvre.
-htop : 2004, créé par Hisham Muhammad.
-Apparence visuelle
-L'apparence de top est simple et montre les informations essentielles, tandis que htop offre une interface colorée, avec des barres de progression pour chaque cœur du processeur, et la possibilité d'utiliser la souris pour naviguer.
+**Fonctionnalités**
+- **htop** propose des fonctionnalités avancées telles que :
+  - Affichage des processus en format arbre.
+  - Possibilité de tuer des processus facilement avec la touche F9.
+  - Filtres pour affiner la liste des processus.
+  - Options de configuration supplémentaires pour personnaliser l'affichage.
+  
+- Bien que **htop** soit plus riche en fonctionnalités et en interactivité, il peut consommer légèrement plus de ressources système que **top**. Cela pourrait être un inconvénient sur des systèmes plus anciens ou avec des ressources limitées. 
 
-Fonctionnalités
-htop propose plusieurs fonctionnalités avancées par rapport à top, telles que :
-
-Affichage des processus en format arbre.
-Possibilité de tuer des processus facilement (avec F9).
-Filtres pour les processus.
-Options de configuration supplémentaires.
-Performances généralement meilleures.
-
-Toutefois, en raison de son interface plus riche, htop peut consommer légèrement plus de ressources système que top, ce qui pourrait être un inconvénient sur des systèmes plus anciens ou avec des ressources limitées.
-
-- Sources: https://www.baeldung.com/linux/ps-command, https://www.digitalocean.com/community/tutorials/linux-ps-command, https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server#step-2-copying-an-ssh-public-key-to-your-server, https://linuxhandbook.com/top-vs-htop/
+## Arret d'un processus
+- Sources: https://www.baeldung.com/linux/ps-command, https://www.digitalocean.com/community/tutorials/linux-ps-command, https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server#step-2-copying-an-ssh-public-key-to-your-server, https://linuxhandbook.com/top-vs-htop/, https://phoenixnap.com/kb/top-command-in-linux
