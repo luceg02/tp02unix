@@ -107,7 +107,7 @@ La passphrase sert à protéger la clé privée, c'est pas bien de ne pas l'util
 - **Perte de contrôle** : La passphrase fonctionne comme un second facteur de sécurité. Même si un attaquant obtient la clé, il a besoin de la passphrase pour s’en servir, ce qui augmente les chances de garder les connexions SSH sécurisées.
 
 #### C'est quoi la difference entre la clé publique et la clé privée ?
-La clé publique et la clé privée sont deux parties d'une **paire de clés** utilisée dans les systèmes de cryptographie asymétrique, comme SSH. Elles fonctionnent ensemble pour sécuriser les connexions. Voici leurs différences principales :
+La clé publique et la clé privée fonctionnent ensemble pour sécuriser les connexions. Voici leurs différences principales :
 
 **1. Clé publique**
 - **Utilisation** : La clé publique est **placée sur les serveurs** auxquels on veut accéder. C’est elle qui autorise la connexion de la clé privée correspondante. Elle est destinée à être **partagée** et copiée sur les serveurs. C’est grâce à cette clé publique que le serveur peut vérifier votre identité lorsque vous vous connectez avec la clé privée.
