@@ -1,4 +1,5 @@
-# tp02unix Luce Giovannetti
+# TP2 UNIX 
+*Luce Giovannetti*
 ## 1.1: Connection ssh root (reprise fin tp-01) 
 On avait modifie permitrootlogin et passwordautentication pour pouvoir se connecter depuis notre machine à la MV.
 Extrait du man:
