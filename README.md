@@ -597,8 +597,6 @@ Il faut indiquer :
   
 - Bien que **htop** soit plus riche en fonctionnalités et en interactivité, il peut consommer légèrement plus de ressources système que **top**. Cela pourrait être un inconvénient sur des systèmes plus anciens ou avec des ressources limitées. 
 
-Bien sûr ! Voici une version révisée en utilisant la première personne ou en adoptant un ton inclusif :
-
 ## 3 : Arrêt d'un processus
 
 ### Création des scripts
@@ -757,9 +755,6 @@ Bien sûr ! Voici une version révisée en utilisant la première personne ou en
 
 4. **`$ ls -l | tee liste | wc -l`**
    - Dans cette commande, `ls -l` génère la liste détaillée des fichiers, qui est ensuite passée à `tee`. Ce dernier affiche la sortie tout en l'écrivant dans le fichier `liste`. Ensuite, `wc -l` compte le nombre de lignes dans la sortie, fournissant ainsi le total de fichiers listés tout en conservant cette liste dans le fichier.
-
-
-Voici une version améliorée et bien structurée de votre texte sur le journal système rsyslog :
 
 ## 5 : Journal système rsyslog
 
