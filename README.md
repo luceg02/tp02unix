@@ -271,68 +271,7 @@ root           6  0.0  0.0      0     0 ?        I<   12:54   0:00 [netns]
 root           9  0.0  0.0      0     0 ?        I    12:54   0:00 [kworker/u2:0-ext4-rsv-conversion]
 root          10  0.0  0.0      0     0 ?        I<   12:54   0:00 [mm_percpu_wq]
 root          11  0.0  0.0      0     0 ?        I    12:54   0:00 [rcu_tasks_kthread]
-root          12  0.0  0.0      0     0 ?        I    12:54   0:00 [rcu_tasks_rude_kthread]
-root          13  0.0  0.0      0     0 ?        I    12:54   0:00 [rcu_tasks_trace_kthread]
-root          14  0.0  0.0      0     0 ?        S    12:54   0:00 [ksoftirqd/0]
-root          15  0.0  0.0      0     0 ?        I    12:54   0:00 [rcu_preempt]
-root          16  0.0  0.0      0     0 ?        S    12:54   0:00 [migration/0]
-root          17  0.0  0.0      0     0 ?        I    12:54   0:02 [kworker/0:1-events]
-root          18  0.0  0.0      0     0 ?        S    12:54   0:00 [cpuhp/0]
-root          20  0.0  0.0      0     0 ?        S    12:54   0:00 [kdevtmpfs]
-root          21  0.0  0.0      0     0 ?        I<   12:54   0:00 [inet_frag_wq]
-root          22  0.0  0.0      0     0 ?        S    12:54   0:00 [kauditd]
-root          23  0.0  0.0      0     0 ?        S    12:54   0:00 [khungtaskd]
-root          24  0.0  0.0      0     0 ?        S    12:54   0:00 [oom_reaper]
-root          27  0.0  0.0      0     0 ?        I<   12:54   0:00 [writeback]
-root          28  0.0  0.0      0     0 ?        S    12:54   0:00 [kcompactd0]
-root          29  0.0  0.0      0     0 ?        SN   12:54   0:00 [ksmd]
-root          30  0.0  0.0      0     0 ?        SN   12:54   0:00 [khugepaged]
-root          31  0.0  0.0      0     0 ?        I<   12:54   0:00 [kintegrityd]
-root          32  0.0  0.0      0     0 ?        I<   12:54   0:00 [kblockd]
-root          33  0.0  0.0      0     0 ?        I<   12:54   0:00 [blkcg_punt_bio]
-root          34  0.0  0.0      0     0 ?        I<   12:54   0:00 [tpm_dev_wq]
-root          35  0.0  0.0      0     0 ?        I<   12:54   0:00 [edac-poller]
-root          36  0.0  0.0      0     0 ?        I<   12:54   0:00 [devfreq_wq]
-root          37  0.0  0.0      0     0 ?        I<   12:54   0:00 [kworker/0:1H-kblockd]
-root          38  0.0  0.0      0     0 ?        S    12:54   0:00 [kswapd0]
-root          44  0.0  0.0      0     0 ?        I<   12:54   0:00 [kthrotld]
-root          46  0.0  0.0      0     0 ?        I<   12:54   0:00 [acpi_thermal_pm]
-root          48  0.0  0.0      0     0 ?        I<   12:54   0:00 [mld]
-root          49  0.0  0.0      0     0 ?        I<   12:54   0:00 [ipv6_addrconf]
-root          54  0.0  0.0      0     0 ?        I<   12:54   0:00 [kstrp]
-root          59  0.0  0.0      0     0 ?        I<   12:54   0:00 [zswap-shrink]
-root          60  0.0  0.0      0     0 ?        I<   12:54   0:00 [kworker/u3:0]
-root         125  0.0  0.0      0     0 ?        I<   12:54   0:00 [ata_sff]
-root         126  0.0  0.0      0     0 ?        S    12:54   0:00 [scsi_eh_0]
-root         127  0.0  0.0      0     0 ?        S    12:54   0:00 [scsi_eh_1]
-root         128  0.0  0.0      0     0 ?        I<   12:54   0:00 [scsi_tmf_0]
-root         129  0.0  0.0      0     0 ?        I<   12:54   0:00 [scsi_tmf_1]
-root         130  0.0  0.0      0     0 ?        S    12:54   0:00 [scsi_eh_2]
-root         131  0.0  0.0      0     0 ?        I<   12:54   0:00 [scsi_tmf_2]
-root         140  0.0  0.0      0     0 ?        I<   12:54   0:00 [kworker/0:2H-kblockd]
-root         171  0.0  0.0      0     0 ?        S    12:54   0:00 [jbd2/sda1-8]
-root         172  0.0  0.0      0     0 ?        I<   12:54   0:00 [ext4-rsv-conver]
-root         211  0.0  0.5  32964 10592 ?        Ss   12:54   0:00 /lib/systemd/systemd-journald
-root         234  0.0  0.2  26188  6000 ?        Ss   12:54   0:00 /lib/systemd/systemd-udevd
-root         273  0.0  0.0      0     0 ?        I<   12:54   0:00 [cryptd]
-root         279  0.0  0.0      0     0 ?        S    12:54   0:00 [irq/18-vmwgfx]
-root         429  0.0  0.0      0     0 ?        S    12:54   0:00 [jbd2/sda2-8]
-root         430  0.0  0.0      0     0 ?        I<   12:54   0:00 [ext4-rsv-conver]
-root         432  0.0  0.0      0     0 ?        S    12:54   0:00 [jbd2/sda3-8]
-root         433  0.0  0.0      0     0 ?        I<   12:54   0:00 [ext4-rsv-conver]
-systemd+     454  0.0  0.3  90080  6668 ?        Ssl  12:54   0:00 /lib/systemd/systemd-timesyncd
-root         483  0.0  0.1   6608  2620 ?        Ss   12:54   0:00 /usr/sbin/cron -f
-message+     484  0.0  0.2   9120  4864 ?        Ss   12:54   0:00 /usr/bin/dbus-daemon --system --address=systemd: --no
-root         487  0.0  0.3  25400  7816 ?        Ss   12:54   0:00 /lib/systemd/systemd-logind
-root         490  0.0  0.1   5868  3588 ?        Ss   12:54   0:00 dhclient -4 -v -i -pf /run/dhclient.enp0s3.pid -lf /v
-root         494  0.0  0.2  16532  5884 ?        Ss   12:54   0:00 /sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant
-root         520  0.0  0.2   6120  4124 tty1     Ss   12:54   0:00 /bin/login -p --
-root         521  0.0  0.4  15432  9464 ?        Ss   12:54   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startu
-root         531  0.0  0.5  18972 10632 ?        Ss   12:54   0:00 /lib/systemd/systemd --user
-root         532  0.0  0.1 103228  3052 ?        S    12:54   0:00 (sd-pam)
-root         538  0.0  0.2   7996  4764 tty1     S+   12:54   0:00 -bash
-root         614  0.0  0.5  17996 11192 ?        Ss   13:01   0:00 sshd: root@pts/0
-root         620  0.0  0.2   7988  4616 pts/0    Ss   13:01   0:00 -bash
+.......
 root         643  0.0  0.0      0     0 ?        I    13:26   0:00 [kworker/u2:2-events_unbound]
 root         664  0.0  0.0      0     0 ?        I    13:31   0:00 [kworker/0:0-ata_sff]
 root         667  0.0  0.0      0     0 ?        I    13:33   0:00 [kworker/u2:1-events_unbound]
@@ -364,7 +303,7 @@ Le résultat nous indique que le processus ayant le plus utilisé le processeur 
     816 root      20   0   11552   5048   3168 R   0.3   0.3   0:00.10 top
 ```
 
-- Quel a été le **premier processu**s lancé après le démarrage du système ?
+- Quel a été le **premier processus** lancé après le démarrage du système ?
 Pour connaître le premier processus lancé, j'ai utilisé `ps -p 1`, et obtenu le resultat:
 
     PID TTY          TIME CMD
@@ -425,7 +364,6 @@ root          10       2  0 Oct13 ?        00:00:00 [mm_percpu_wq]
 root        1837    1831  0 20:22 pts/0    00:00:00 -bash
 root        1840    1837  0 20:23 pts/0    00:00:00 ps -ef
 ```
-*– Donner la liste ordonnee de tous les processus ancˆetres de la commande ps en cours d’ex´ecution.*
 
 #### 3 : Utilisation de la commande pstree 
 Pour afficher la liste ordonnée de tous les **processus ancêtres** de la commande ps en cours d'exécution, nous allons utiliser la commande `pstree`.
@@ -616,7 +554,7 @@ Affichage avec les couleurs modifies:
 ![image](https://github.com/user-attachments/assets/0b176387-043e-476d-b478-f26d6ea843af)
 
 
-- Pour mettre en avant le colonne de trie et changer la colonne de trie:
+- Pour mettre en avant le colonne de trie et changer la colonne de tri il y a different methodes:
 1. **Utiliser les touches de tri :** Dans l'interface de `top`, on peut directement changer le critère de tri en appuyant sur certaines touches :
    - **P** : Trier par utilisation du CPU (%CPU).
    - **M** : Trier par utilisation de la mémoire (%MEM).
@@ -640,24 +578,12 @@ Il faut indiquer :
 1. **Installation :**
    - **top :** Préinstallé sur toutes les distributions Linux modernes, il est donc immédiatement disponible.
    - **htop :** Nécessite une installation manuelle.
-
-2. **Fonctionnalité :**
-   - **top :** Met l'accent sur les processus consommant le plus de ressources système, mais avec moins d'interactivité.
-   - **htop :** Affiche tous les processus en cours de manière interactive, facilitant ainsi la gestion des ressources.
-
-3. **Support du défilement :**
-   - **top :** Ne prend pas en charge le défilement, ce qui peut limiter la visibilité sur les processus.
-   - **htop :** Permet le défilement horizontal et vertical, rendant la navigation plus fluide.
-
-4. **Arbre des processus :**
-   - **top :** Ne montre pas l'arbre des processus, ce qui peut compliquer la compréhension des relations entre eux.
-   - **htop :** Affiche l'arbre des processus en appuyant sur F5, facilitant l'analyse de la hiérarchie des processus.
-
-5. **Support de la souris :**
+     
+2. **Support de la souris :**
    - **top :** Ne supporte pas l'utilisation de la souris, ce qui peut rendre l'interaction moins intuitive.
    - **htop :** Prend en charge la souris, offrant une expérience utilisateur plus agréable.
 
-6. **Apparence visuelle**
+3. **Apparence visuelle**
 - **top :** Présente une interface simple, se concentrant sur l'affichage des informations essentielles.
 - **htop :** Offre une interface colorée, incluant des barres de progression pour chaque cœur de processeur et permettant d'utiliser la souris pour naviguer.
 
@@ -670,5 +596,288 @@ Il faut indiquer :
   
 - Bien que **htop** soit plus riche en fonctionnalités et en interactivité, il peut consommer légèrement plus de ressources système que **top**. Cela pourrait être un inconvénient sur des systèmes plus anciens ou avec des ressources limitées. 
 
-## Arret d'un processus
-- Sources: https://www.baeldung.com/linux/ps-command, https://www.digitalocean.com/community/tutorials/linux-ps-command, https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server#step-2-copying-an-ssh-public-key-to-your-server, https://linuxhandbook.com/top-vs-htop/, https://phoenixnap.com/kb/top-command-in-linux
+Bien sûr ! Voici une version révisée en utilisant la première personne ou en adoptant un ton inclusif :
+
+## 3 : Arrêt d'un processus
+
+### Création des scripts
+
+1. **Création de `date.sh`** :
+   - J'ouvre un terminal et je crée le fichier avec :
+     ```bash
+     nano date.sh
+     ```
+   - J'écris le script suivant dans le fichier :
+     ```bash
+     #!/bin/sh
+     while true; do 
+         sleep 1; 
+         echo -n 'date '; 
+         date +%T; 
+     done
+     ```
+
+2. **Création de `date-toto.sh`** :
+   - Je crée le second fichier :
+     ```bash
+     nano date-toto.sh
+     ```
+   - J'écris le script suivant :
+     ```bash
+     #!/bin/sh
+     while true; do 
+         sleep 1; 
+         echo -n 'toto '; 
+         date --date '5 hour ago' +%T; 
+     done
+     ```
+
+### Exécution des scripts
+
+- Je lance le premier script :
+  ```bash
+  ./date.sh
+  ```
+
+- Ensuite, je lance le second script :
+  ```bash
+  ./date-toto.sh
+  ```
+
+- Je mets les deux processus en arrière-plan avec `Ctrl+Z`.
+
+### Affichage des processus en arrière-plan
+
+- J'utilise la commande `jobs` pour afficher les processus :
+  ```bash
+  jobs
+  ```
+  Résultat :
+  ```
+  [1]-  Stopped                 ./date.sh
+  [2]+  Stopped                 ./date-toto.sh
+  ```
+
+### Remise au premier plan et arrêt des processus
+
+- Je remets le premier processus au premier plan :
+  ```bash
+  fg %1
+  ```
+
+- J'arrête le processus avec `Ctrl+C`. Voici ce que je vois :
+  ```
+  date 17:45:25
+  date 17:45:26
+  date 17:45:27
+  ^C
+  ```
+
+- Je remets le deuxième processus au premier plan :
+  ```bash
+  fg %2
+  ```
+
+- J'arrête ce processus également avec `Ctrl+C`. Résultat :
+  ```
+  toto 12:46:14
+  toto 12:46:15
+  toto 12:46:16
+  ^C
+  ```
+
+### Vérification des processus en cours
+
+- Je relance les scripts `date.sh` et `date-toto.sh`, puis je vérifie les processus en cours avec la commande `ps` :
+  ```bash
+  ps
+  ```
+  Résultat :
+  ```
+      PID TTY          TIME CMD
+     2754 pts/3    00:00:00 bash
+     8725 pts/3    00:00:00 date.sh
+     8766 pts/3    00:00:00 sleep
+     8797 pts/3    00:00:00 date-toto.sh
+     8806 pts/3    00:00:00 sleep
+     8823 pts/3    00:00:00 ps
+  ```
+
+### Arrêt forcé des processus
+
+- Pour arrêter les processus, j'utilise la commande `kill` avec le préfixe `-9` et le PID du processus :
+  ```bash
+  kill -9 8725
+  ```
+  Résultat :
+  ```
+  [1]+  Killed                  ./date.sh
+  ```
+
+- Ensuite, j'arrête le second processus :
+  ```bash
+  kill -9 8797
+  ```
+  Résultat :
+  ```
+  [2]+  Killed                  ./date-toto.sh
+  ```
+- Je relance la commande `ps` pour vérifier que les deux processus ne sont plus présents
+
+### Explication des scripts
+
+**Script 1 : `date.sh`**
+- while true; do ... done` s'exécute indéfiniment.
+- `sleep 1` suspend l'exécution pendant 1 seconde pour éviter une surcharge.
+- `echo -n 'date '` affiche le mot `date` sans saut de ligne.
+- `date +%T` affiche l'heure actuelle au format `HH:MM:SS`.
+
+**Script 2 : `date-toto.sh`**
+- `sleep 1` pour un intervalle de 1 seconde.
+- `echo -n 'toto '` affiche le mot `toto` sans saut de ligne.
+- `date --date '5 hour ago' +%T` affiche l'heure qu'il était il y a 5 heures au format `HH:MM:SS`.
+
+## 4 : les tubes
+
+- **`cat`** : Cette commande lit le contenu d'un ou plusieurs fichiers et l'affiche sur la sortie standard (généralement le terminal). Elle est principalement utilisée pour visualiser le contenu d'un fichier, mais ne permet pas d'enregistrer cette sortie dans un autre fichier.
+
+- **`tee`** : À la différence de `cat`, `tee` lit une entrée et écrit simultanément cette entrée dans un fichier tout en l'affichant sur la sortie standard. Cela permet à l'utilisateur de visualiser les données tout en les enregistrant.
+
+### Explication des commandes
+
+1. **`$ ls | cat`**
+   - Cette commande exécute `ls` pour lister les fichiers dans le répertoire courant, puis redirige cette sortie vers `cat`. Le résultat affiché est identique à celui de `ls`, car `cat` ne modifie pas la sortie.
+
+2. **`$ ls -l | cat > liste`**
+   - Ici, `ls -l` génère une liste détaillée des fichiers. La sortie est ensuite redirigée vers `cat`, qui enregistre le contenu dans le fichier `liste`. Cette opération pourrait être simplifiée en utilisant simplement `ls -l > liste`.
+
+3. **`$ ls -l | tee liste`**
+   - Cette commande exécute `ls -l` pour afficher la liste détaillée des fichiers. `tee` permet de visualiser cette sortie sur le terminal tout en l'enregistrant dans le fichier `liste`. Cela est utile pour conserver une trace de la sortie tout en l'affichant.
+
+4. **`$ ls -l | tee liste | wc -l`**
+   - Dans cette commande, `ls -l` génère la liste détaillée des fichiers, qui est ensuite passée à `tee`. Ce dernier affiche la sortie tout en l'écrivant dans le fichier `liste`. Ensuite, `wc -l` compte le nombre de lignes dans la sortie, fournissant ainsi le total de fichiers listés tout en conservant cette liste dans le fichier.
+
+
+Voici une version améliorée et bien structurée de votre texte sur le journal système rsyslog :
+
+## 5 : Journal système rsyslog
+
+### Service rsyslog
+
+- **Le service rsyslog est-il lancé sur votre système ? Quel est le PID du démon ?**
+  
+  Pour vérifier si le service rsyslog est actif, j'utilise la commande suivante :
+  ```bash
+  systemctl status rsyslog
+  ```
+  Comme le service n'était pas installé, je l'ai installé avec :
+  ```bash
+  apt-get install rsyslog
+  ```
+
+  Ensuite, je vérifie à nouveau s'il est actif :
+  ```bash
+  service rsyslog status
+  ```
+  Résultat :
+  ```
+  ● rsyslog.service - System Logging Service
+       Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; preset: enabled)
+       Active: active (running) since Tue 2024-10-15 18:09:36 UTC; 23s ago
+       TriggeredBy: ● syslog.socket
+       Docs: man:rsyslogd(8)
+             man:rsyslog.conf(5)
+             https://www.rsyslog.com/doc/
+     Main PID: 16357 (rsyslogd)
+        Tasks: 4 (limit: 2315)
+       Memory: 3.3M
+          CPU: 4ms
+       CGroup: /system.slice/rsyslog.service
+               └─16357 /usr/sbin/rsyslogd -n -iNONE
+  ```
+
+  Le PID du démon est :
+  ```
+  Main PID: 16357 (rsyslogd)
+  ```
+
+### Fichiers de configuration
+
+- **Dans quel fichier rsyslog écrit-il les messages issus des services standards ? Et la plupart des autres messages ?**
+  
+  Les messages issus des services standards sont généralement écrits dans :
+  - `/var/log/syslog`
+  - `/var/log/auth.log` pour les messages d'authentification
+  - `/var/log/kern.log` pour les messages du noyau
+
+  Pour vérifier le contenu de ces fichiers, on peut utiliser :
+  ```bash
+  cat /var/log/syslog
+  ```
+
+  Extrait du contenu de `/var/log/syslog` :
+  ```
+  2024-10-15T18:09:36.998236+00:00 serveur1 systemd[1]: Listening on syslog.socket - Syslog Socket.
+  2024-10-15T18:09:36.998477+00:00 serveur1 systemd[1]: Starting rsyslog.service - System Logging Service...
+  2024-10-15T18:09:36.997445+00:00 serveur1 rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2302.0]
+  ```
+
+### Service cron
+
+- **À quoi sert le service cron ?**
+  
+  Le service cron permet de planifier l'exécution de tâches de manière répétée à des intervalles réguliers. Cela est utile pour automatiser des tâches telles que des sauvegardes, des mises à jour ou des scripts de maintenance. Je n'avais pas ce service, donc je l'ai installé.
+
+### Commande `tail -f`
+
+- **Que fait la commande `tail -f` ?**
+  
+  La commande `tail -f` affiche les dernières lignes d'un fichier et continue à surveiller ce fichier pour afficher de nouvelles lignes ajoutées en temps réel. C'est particulièrement utile pour visualiser les journaux système.
+
+  Pour visualiser en temps réel le fichier `/var/log/syslog`, j'utilise :
+  ```bash
+  tail -f /var/log/syslog
+  ```
+
+- **Que voyez-vous si vous redémarrez le service cron depuis un autre shell ?**
+  
+  Après avoir redémarré le service avec la commande :
+  ```bash
+  systemctl restart cron
+  ```
+  je ne vois rien dans le terminal.
+
+### Fichier `logrotate.conf`
+
+- **À quoi sert le fichier `/etc/logrotate.conf` ?**
+  
+  Ce fichier est utilisé pour configurer la rotation des journaux. Il permet de définir des règles sur la fréquence de rotation des fichiers journaux, le nombre de fichiers de sauvegarde à conserver, et d'autres paramètres pour gérer la taille et la durée de conservation des journaux.
+
+### Sortie de la commande `dmesg`
+
+- **Examiner la sortie de la commande `dmesg`. Quel modèle de processeur Linux détecte-t-il sur votre machine ? Quels modèles de cartes réseaux détecte-t-il ?**
+  
+  Pour examiner la sortie, j'exécute :
+  ```bash
+  dmesg
+  ```
+  Extrait de la sortie :
+  ```
+  [    0.000000] Linux version 6.1.0-25-amd64 (debian-kernel@lists.debian.org) ...
+  [    0.163442] smpboot: CPU0: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz ...
+  [    0.709485] e1000: Intel(R) PRO/1000 Network Driver
+  [    1.121306] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+  ```
+
+  - **Info processeur** :
+    ```bash
+    [    0.163442] smpboot: CPU0: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (family: 0x6, model: 0x8c, stepping: 0x1)
+     ```
+  - **Info cartes réseau** :
+    ```bash
+  [    0.709485] e1000: Intel(R) PRO/1000 Network Driver
+[    1.121306] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+ ```
+
+
+- Sources: https://www.baeldung.com/linux/ps-command, https://www.digitalocean.com/community/tutorials/linux-ps-command, https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server#step-2-copying-an-ssh-public-key-to-your-server, https://linuxhandbook.com/top-vs-htop/, https://phoenixnap.com/kb/top-command-in-linux, https://doc.ubuntu-fr.org/logrotate
