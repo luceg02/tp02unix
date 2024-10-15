@@ -22,7 +22,7 @@ Extrait du man:
 
   ```
 
-#### `PermitRootLogin`
+### `PermitRootLogin`
 Le paramètre `PermitRootLogin` dans le fichier de configuration SSH contrôle si l'utilisateur root est autorisé à se connecter via SSH et, si oui, par quelles méthodes. Voici les différentes options :
 
 `PermitRootLogin yes`
