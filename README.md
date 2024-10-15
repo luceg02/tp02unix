@@ -106,14 +106,14 @@ La passphrase sert à protéger la clé privée, c'est pas bien de ne pas l'util
 - **Accès non autorisé** : Une passphrase ajoute une couche de protection. Sans passphrase, si votre clé privée est volée, elle peut être utilisée immédiatement par une autre personne pour se connecter à vos serveurs.
 - **Perte de contrôle** : La passphrase fonctionne comme un second facteur de sécurité. Même si un attaquant obtient la clé, il a besoin de la passphrase pour s’en servir, ce qui augmente les chances de garder les connexions SSH sécurisées.
 
-### 2. C'est quoi la difference entre la clé publique et la clé privée ?
+#### C'est quoi la difference entre la clé publique et la clé privée ?
 La clé publique et la clé privée sont deux parties d'une **paire de clés** utilisée dans les systèmes de cryptographie asymétrique, comme SSH. Elles fonctionnent ensemble pour sécuriser les connexions. Voici leurs différences principales :
 
-### 1. Clé publique
-- **Utilisation** : La clé publique est **placée sur les serveurs** auxquels von veut accéder. C’est elle qui autorise la connexion de la clé privée correspondante. Elle est destinée à être **partagée** et copiée sur les serveurs. C’est grâce à cette clé publique que le serveur peut vérifier votre identité lorsque vous vous connectez avec la clé privée.
+**1. Clé publique**
+- **Utilisation** : La clé publique est **placée sur les serveurs** auxquels on veut accéder. C’est elle qui autorise la connexion de la clé privée correspondante. Elle est destinée à être **partagée** et copiée sur les serveurs. C’est grâce à cette clé publique que le serveur peut vérifier votre identité lorsque vous vous connectez avec la clé privée.
 - **Sécurité** : La clé publique ne contient **aucune information sensible** à elle seule. Même si quelqu’un l’obtient, il ne pourra pas s'en servir pour accéder à votre compte sans la clé privée.
 
-### 2. Clé privée
+**2. Clé privée**
 - **Utilisation** : La clé privée reste **sur votre machine locale** et est utilisée pour **authentifier votre identité** auprès du serveur. Elle fonctionne comme une "signature" prouvant que vous êtes bien l’utilisateur autorisé. La clé privée est **strictement personnelle** et **ne doit jamais être partagée**. Elle est gardée en sécurité sur votre appareil local, souvent protégée par une passphrase.
 - **Sécurité** : La clé privée contient des informations sensibles. Si quelqu’un y accède, il pourrait se connecter aux serveurs où la clé publique est installée. C'est pourquoi il est recommandé de la protéger avec une passphrase.
 
@@ -781,7 +781,7 @@ Voici une version améliorée et bien structurée de votre texte sur le journal 
   service rsyslog status
   ```
   Résultat :
-  ```
+  ```bash
   ● rsyslog.service - System Logging Service
        Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; preset: enabled)
        Active: active (running) since Tue 2024-10-15 18:09:36 UTC; 23s ago
@@ -797,16 +797,15 @@ Voici une version améliorée et bien structurée de votre texte sur le journal 
                └─16357 /usr/sbin/rsyslogd -n -iNONE
   ```
 
-  Le PID du démon est :
-  ```
+  Le PID du démon est 16357:
   Main PID: 16357 (rsyslogd)
-  ```
+  
 
 ### Fichiers de configuration
 
 - **Dans quel fichier rsyslog écrit-il les messages issus des services standards ? Et la plupart des autres messages ?**
   
-  Les messages issus des services standards sont généralement écrits dans :
+  Les messages issus des services standards et les autres sont généralement écrits dans :
   - `/var/log/syslog`
   - `/var/log/auth.log` pour les messages d'authentification
   - `/var/log/kern.log` pour les messages du noyau
